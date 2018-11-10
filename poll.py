@@ -1,61 +1,64 @@
 from flask import Flask, render_template, request
 import os
+
+current_user = None
+
 app = Flask(__name__)
 
-#@app.route('/login')
-#def root():
-    #return render_template('poll.html', data=getquestion(count))
-#    return render_template('login.html', data = getquestion(count))
-
-#@app.route('/question')
-#def loginsuccess():
-    #username = request.args.get(pass)
-    #return username 
- 
 Q={'1' : {
    'question' : 'I couldn’t seem to experience any positive feeling at all',
-   'fields'   : ['0', '1', '2', '3']
+   'fields'   : ['Strongly disagree', 'Disagree', 'Agree', 'Strongly agree', 'skip']
 },
 
 '2' : {
    'question' : 'I found it difficult to work up the initiative to do things',
-   'fields'   : ['0', '1', '2', '3']
+   'fields'   : ['Strongly disagree', 'Disagree', 'Agree', 'Strongly agree', 'skip']
 },
 
 '3' : {
    'question' : 'I couldn’t seem to experience any neutral feeling at all',
-   'fields'   : ['0', '1', '2', '3']
+   'fields'   : ['Strongly disagree', 'Disagree', 'Agree', 'Strongly agree', 'skip']
 },
 
 '4' : {
    'question' : 'I found it hard to wind down',
-   'fields'   : ['0', '1', '2', '3']
+   'fields'   : ['Strongly disagree', 'Disagree', 'Agree', 'Strongly agree', 'skip']
 },
 
 '5' : {
    'question' : 'I was aware of dryness of my mouth',
-   'fields'   : ['0', '1', '2', '3']
+   'fields'   : ['Strongly disagree', 'Disagree', 'Agree', 'Strongly agree', 'skip']
 }
 }
 
-count=1
-
-@app.route('/')
-def root():
-    username = request.args.get('password')
-    with open('saveresponse.csv','a+') as f:
-        f.write(username + '\n')
+@app.route('/login')
+def root1():
     #return render_template('poll.html', data=getquestion(count))
-    return render_template('poll.html', data = Q['1'])
+    return render_template('login.html')
+
+@app.route('/question', methods = ['GET', 'POST'])
+def loginsuccess():
+    global current_user
+    current_user = request.form.get('username')
+    with open('saveresponse.csv','a+') as f:
+        f.write('\n'+ current_user)
+    return render_template('question.html', data = Q['1'])
+ 
+count=1
 
 @app.route('/poll')
 def poll():
     global count
     vote = request.args.get('field')
     with open('saveresponse.csv','a+') as f:
-        f.write(vote + '\n')
+        f.write(','+vote)
     count+=1
-    return render_template('poll.html', data=Q[str(count)])
+    if count>=6:
+        return render_template('thankyou.html', data={'user':current_user})
+    return render_template('question.html', data=Q[str(count)])
+    
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+    

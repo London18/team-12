@@ -1,142 +1,37 @@
-<!-- landing page will have the following: menu bar with sign in-->
 
-<!DOCTYPE html>
-
-<html lang="en">
+<html>
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body class="bg-info">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href = "style.css">
-    <title> Autistica- Login </title>
-</head>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Autistica</a>
+    </nav>
+<!-- style="background-color:#ffcc00;"-->
+    <div class="col-3">
 
-<body>
-  <nav class="navbar bg-dark navbar-dark navbar-expand-sm sticky-top">
-    <div class="container">
-
-      <a class="navbar-brand d-none d-sm-inline block" href = "index.html">
-        Autistica
-      </a>
-
-      <button class="navbar-toggler" type="button"
-        data-toggle="collapse" data-target="#myTogglerNav"
-        aria-controls="myToggleNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- <div class="text-center" style="padding:20px 0"> -->
-      	<div class="logo"></div>
-
-      <div class="collapse navbar-collapse" id="myTogglerNav">
-        <div class="navbar-nav ml-sm-auto">
-
-            <div class="dropdown">
-
-              <a class = "nav-item nav-link dropdown-toggle"
-              data-toggle="dropdown" id="newsDropdown"
-              aria-haspopup="true" aria-expanded="false"
-              href = news.html> Customize </a>
-
-              <div class="dropdown-menu" aria-labelledby="newsDropdown">
-                  <a class="dropdown-item" href="textSize.html"> Text</a>
-                  <!-- <a class="dropdown-item" href="color.html"> Color </a> -->
-                  <a class="dropdown-item" href="font.html"> Font </a>
-                </div><!--dropdown-menu-->
-
-              </div><!--dropdown-->
-
-            <a class = "nav-item nav-link" href = about.html> Login </a>
-        </div><!--navbar-nav-->
-      </div><!--collapse-->
-    </div><!--container-->
-  </nav>
-
-  <div class="container col-6 align-items-center align-content-center mt-5 bg-light">
-    <div class=" container">
-      <h3 class="align-self-center">Welcome back! Login here :) </h3>
     </div>
-    <br>
-    <form action="" method="post">
-      <input class= "col-12 mb-2 border-dark" type="text" placeholder="USERNAME" name="USERNAME" value="{{
-        request.form.username }}">
-       <input class= "col-12 mb-2 border-dark" type="password" placeholder="PASSWORD" name="PASSWORD" value="{{
-        request.form.password }}">
-      <input class=" col-12 btn btn-default border-dark bg-light" type="SUBMIT" value="SUBMIT">
-    </form>
-    {% if error %}
-      <p class="error"><strong>Error:</strong> {{ error }}
-    {% endif %}
-  </div>
 
-  <style>
-    .colorBlock {
-      /* position: absolute;
-      top=80px
-      right=10; */
-      width: 30px;
-      height: 70px;
-    }
-    #Violet {
-      background-color: rebeccaPurple;
-    }
-    #Indigo {
-      background-color: MidnightBlue;
-    }
-    #Blue {
-      background-color: deepSkyBlue;
-    }
-    #Green {
-      background-color: lightGreen ;
-    }
-    #Yellow {
-      background-color: yellow;
-    }
-    #Orange {
-      background-color: orange;
-    }
-    #Red {
-      background-color: indianRed;
-    }
+    <div class="container col-6 align-items-center align-content-center mt-5 bg-light">
+      <div class=" container">
+        <h4 class="align-self-center">Welcome back! Please login</h4>
+      </div>
+      <br>
+      <form action="/question" method="post">
+        <input class= "col-12 mb-2 border-light" type="text" placeholder="Username" name="username" value="">
+         <input class= "col-12 mb-2 border-light" type="password" placeholder="Password" name="password" value="">
+        <input class=" col-12 btn btn-default border-light bg-primary" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
 
-  </style>
+    <div class="col-3">
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="bootstrap.min.js"></script>
-
-    <div class="colorBlock" id="Violet"></div>
-    <div class="colorBlock" id="Indigo"></div>
-    <div class="colorBlock" id="Blue"></div>
-    <div class="colorBlock" id="Green"></div>
-    <div class="colorBlock" id="Yellow"></div>
-    <div class="colorBlock" id="Orange"></div>
-    <div class="colorBlock" id="Red"></div>
-      <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-      <script type="text/javascript" charset="utf-8">
-     //Create anonymous function that listens for a click on anything with the class colorBlock
-      $(".colorBlock").click(function() {
-        //Get the background color of the clicked color block by using the this object
-        var $backgroundColor = $(this).css("background-color");
-        //Set the body's background-color to the received background-color
-        $("body").css("background-color", $backgroundColor);
-      });
-
-    </script>
+    </div>
   </body>
-
-  <footer>
-    <div class="container fixed-bottom">
-      Copyright &copy; 2018, Team 12
-    </div><!--container-->
-
-
-  </footer>
-
 </html>
