@@ -54,7 +54,9 @@ def poll():
         f.write(','+vote)
     count+=1
     if count>=6:
+        count = 1
         return render_template('thankyou.html', data={'user':current_user})
+    
     return render_template('question.html', data=Q[str(count)])
     
 
