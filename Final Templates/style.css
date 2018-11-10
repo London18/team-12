@@ -1,0 +1,17 @@
+h1 {
+  color: #a3059c;
+}
+
+footer {
+  color:gray;
+  font-size: 12px;
+}
+
+img.about{
+  height: 100px;
+  width: 100px;
+}
+
+body {
+  background-color: #f2afef;
+}

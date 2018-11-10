@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Nov 10 09:42:33 2018
+
+@author: jimmy
+"""
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Test</title>
+  <style>
+    .colorBlock {
+      width: 100px;
+      height: 100px;
+    }
+    #Violet {
+      background-color: rebeccaPurple;
+    }
+    #Indigo {
+      background-color: MidnightBlue;
+    }
+    #Blue {
+      background-color: deepSkyBlue;
+    }
+    #Green {
+      background-color: lightGreen ;
+    }
+    #Yellow {
+      background-color: yellow;
+    }
+    #Orange {
+      background-color: orange;
+    }
+    #Red {
+      background-color: indianRed;
+    }
+  </style>
+</head>
+<body>
+  <div class="colorBlock" id="Violet"></div>
+  <div class="colorBlock" id="Indigo"></div>
+  <div class="colorBlock" id="Blue"></div>
+  <div class="colorBlock" id="Green"></div>
+  <div class="colorBlock" id="Yellow"></div>
+  <div class="colorBlock" id="Orange"></div>
+  <div class="colorBlock" id="Red"></div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+   //Create anonymous function that listens for a click on anything with the class colorBlock
+    $(".colorBlock").click(function() {
+      //Get the background color of the clicked color block by using the this object
+      var $backgroundColor = $(this).css("background-color");
+      //Set the body's background-color to the received background-color
+      $("body").css("background-color", $backgroundColor);
+    });
+  </script>
+</body>
+</html>

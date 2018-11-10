@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body class="bg-info">
+
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="https://www.autistica.org.uk" target="_blank">Autistica</a>
+      <a class="navbar-brand" href="https://www.autistica.org.uk/about-us/about-us" target="_blank">About Us</a>
+      <a class="navbar-brand" href="https://www.autistica.org.uk/about-us/contact-us" target="_blank">Contact Us</a>
+    </nav>
+<!-- style="background-color:#ffcc00;"-->
+    <div class="col-3">
+
+    </div>
+
+    <div style="height:70%; border-radius:5px; " class= "container col-6 align-items-center align-content-center mt-5 bg-light maincontainer">
+      <div class =" container">
+        <h4 class="align-self-center">Welcome back! Please login</h4>
+      </div>
+      <br>
+      <form action="/question" method="post">
+        <input style="border-radius: 5px;"" class= "col-12 mb-2 border-light" type="text" placeholder="Username" name="username" value="">
+         <input style="border-radius: 5px;"class= "col-12 mb-2 border-light" type="password" placeholder="Password" name="password" value="">
+        <input class=" col-12 btn btn-default border-light bg-primary" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+    <div class="col-3">
+    </div>
+  </body>
+</html>
